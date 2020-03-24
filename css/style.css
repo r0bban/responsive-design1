@@ -1,0 +1,97 @@
+body {
+    background-color: #eee;
+    margin: 0;
+    /* color: #eee; */
+}
+
+.grid-container {
+    max-width: 1000px;
+    background: #fff;
+    margin: 0 auto;
+    /* gör att containern ligger i mitten*/
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 240px 60px minmax(400px, auto) minmax(240px, auto) 150px;
+    grid-template-areas: "header header header" "nav nav nav" "main main aside" "gallery gallery gallery" "footer footer footer"
+}
+
+header {
+    grid-area: header;
+    background: darkblue;
+    color: white;
+    font-size: 2rem;
+    font-weight: bolder;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1rem;
+}
+
+nav {
+    grid-area: nav;
+    background: lawngreen;
+}
+
+main {
+    grid-area: main;
+    background: rosybrown;
+    padding: 1rem;
+}
+
+main article {
+    background: cadetblue;
+    padding: 1rem;
+    margin: 0 0 1rem 0;
+}
+
+main article img {
+    width: 100%;
+}
+
+aside {
+    grid-area: aside;
+    background: khaki;
+}
+
+section.gallery {
+    grid-area: gallery;
+    background: lightblue;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 160px;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+section.gallery div.img {
+    background: coral;
+    /* box-sizing: border-box; */
+}
+
+footer {
+    grid-area: footer;
+    background: black;
+}
+
+/*mobile*/
+
+@media screen and (max-width: 640px) {
+    /* stuff that changes on viewports lower than 640px */
+    .grid-container {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: 240px 60px minmax(400px, auto) minmax(240px, auto) minmax(240px, auto) 150px;
+        grid-template-areas: "header" "nav" "main" "aside" "gallery" "footer"
+    }
+    section.gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/*tablet*/
+
+/* @media screen and (min-width: 641px) and (max-width: 1024px) {
+    body {
+        background-color: rgb(160, 24, 24);
+    }
+} */
